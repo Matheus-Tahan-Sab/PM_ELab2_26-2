@@ -78,8 +78,15 @@ public class Projeto {
 	 * @return quantidade de dias desde a finalização, ou {@code -1} se o projeto ainda não foi finalizado
 	 */
 	public int diasAposFinalizacao() {
-		//TODO
-		return 0;
+		
+		LocalDate diaEntrega = LocalDate.now();
+		int dias = (int)finalizadoEm.until(diaEntrega, ChronoUnit.DAYS);
+		
+		if(finalizadoEm == null){
+			return -1;
+		}
+
+		return dias;
 	}
 
 	/**
